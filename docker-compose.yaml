@@ -1,20 +1,11 @@
-version: '3.8'
-
 services:
   web:
     build: .
     image: djangocicd:latest
-    volumes:
-      -  .:/code
-
-  web_migrate:
-    extends:
-      service: web
-    command: python manage.py migrate
-
-  web_run:
-    extends:
-      service: web
-    command: python manage.py runserver 0.0.0.0:8000
+    expose:
+      - "5000:80"
     ports:
-      -  "8000:8000"
+      - "5000:80"
+    read_only: false
+    tty: true
+    restart: unless-stopped
