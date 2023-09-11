@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-project-deployment
+  namespace: cicd
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: cicd-project
+  template:
+    metadata:
+      labels:
+        app: cicd-project
+    spec:
+      containers:
+        - image: miloskuzmanovski/cicd-project:latest
+          name: cicd-project
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5000
+              name: gunicorn

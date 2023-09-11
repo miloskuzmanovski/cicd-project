@@ -1,5 +1,5 @@
 django
 django-environ
 djangorestframework
-uvicorn
+gunicorn
 psycopg2

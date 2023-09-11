@@ -2,10 +2,10 @@ services:
   web:
     build: .
     image: djangocicd:latest
+    container_name: djangocicd
     expose:
       - "5000:80"
     ports:
       - "5000:80"
     read_only: false
-    tty: true
     restart: unless-stopped
