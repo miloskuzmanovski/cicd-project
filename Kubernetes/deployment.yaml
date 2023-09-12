@@ -4,7 +4,7 @@ metadata:
   name: cicd-project-deployment
   namespace: cicd
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: cicd-project
@@ -14,12 +14,7 @@ spec:
         app: cicd-project
     spec:
       containers:
-        - image: miloskuzmanovski/cicd-project:latest
-          name: cicd-project
-          imagePullPolicy: Always
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
-          ports:
+        -  name: cicd-project
+           image: miloskuzmanovski/cicd-project:latest
+           ports:
             - containerPort: 8000
