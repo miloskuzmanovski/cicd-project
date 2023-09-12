@@ -4,9 +4,10 @@ metadata:
   name: cicd-project-service
   namespace: cicd
 spec:
+  type: NodePort
   selector:
     app: cicd-project
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 8000
+      targetPort: 8000

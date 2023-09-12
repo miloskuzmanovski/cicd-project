@@ -8,5 +8,3 @@ COPY . /app
 RUN pip install django djangorestframework tzdata
 RUN pip install gunicorn psycopg2
 WORKDIR /app
-EXPOSE 5000
-CMD ["gunicorn", "--bind", ":5000", "app.wsgi:application"]
