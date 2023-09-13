@@ -4,7 +4,7 @@ metadata:
   name: cicd-project-deployment
   namespace: cicd
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: cicd-project
